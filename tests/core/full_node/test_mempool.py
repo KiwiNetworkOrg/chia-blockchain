@@ -7,38 +7,38 @@ import pytest
 from clvm import SExp
 from clvm.EvalError import EvalError
 
-import chia.server.ws_connection as ws
+import kiwi.server.ws_connection as ws
 
-from chia.full_node.mempool import Mempool
-from chia.full_node.full_node_api import FullNodeAPI
-from chia.protocols import full_node_protocol
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.announcement import Announcement
-from chia.types.blockchain_format.coin import Coin
-from chia.types.coin_spend import CoinSpend
-from chia.types.condition_opcodes import ConditionOpcode
-from chia.types.condition_with_args import ConditionWithArgs
-from chia.types.spend_bundle import SpendBundle
-from chia.util.clvm import int_to_bytes
-from chia.util.condition_tools import conditions_for_solution
-from chia.util.errors import Err, ValidationError
-from chia.util.ints import uint64
-from chia.util.hash import std_hash
-from chia.types.mempool_inclusion_status import MempoolInclusionStatus
-from chia.util.api_decorators import api_request, peer_required, bytes_required
-from chia.full_node.mempool_check_conditions import parse_condition_args
+from kiwi.full_node.mempool import Mempool
+from kiwi.full_node.full_node_api import FullNodeAPI
+from kiwi.protocols import full_node_protocol
+from kiwi.simulator.simulator_protocol import FarmNewBlockProtocol
+from kiwi.types.announcement import Announcement
+from kiwi.types.blockchain_format.coin import Coin
+from kiwi.types.coin_spend import CoinSpend
+from kiwi.types.condition_opcodes import ConditionOpcode
+from kiwi.types.condition_with_args import ConditionWithArgs
+from kiwi.types.spend_bundle import SpendBundle
+from kiwi.util.clvm import int_to_bytes
+from kiwi.util.condition_tools import conditions_for_solution
+from kiwi.util.errors import Err, ValidationError
+from kiwi.util.ints import uint64
+from kiwi.util.hash import std_hash
+from kiwi.types.mempool_inclusion_status import MempoolInclusionStatus
+from kiwi.util.api_decorators import api_request, peer_required, bytes_required
+from kiwi.full_node.mempool_check_conditions import parse_condition_args
 
 from tests.connection_utils import connect_and_get_peer
 from tests.core.node_height import node_height_at_least
 from tests.setup_nodes import bt, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
-from chia.types.blockchain_format.program import Program, INFINITE_COST
-from chia.consensus.condition_costs import ConditionCost
-from chia.consensus.cost_calculator import NPCResult
-from chia.types.blockchain_format.program import SerializedProgram
+from kiwi.types.blockchain_format.program import Program, INFINITE_COST
+from kiwi.consensus.condition_costs import ConditionCost
+from kiwi.consensus.cost_calculator import NPCResult
+from kiwi.types.blockchain_format.program import SerializedProgram
 from clvm_tools import binutils
-from chia.types.generator_types import BlockGenerator
-from chia.full_node.mempool_check_conditions import get_name_puzzle_conditions
+from kiwi.types.generator_types import BlockGenerator
+from kiwi.full_node.mempool_check_conditions import get_name_puzzle_conditions
 from clvm.casts import int_from_bytes
 
 BURN_PUZZLE_HASH = b"0" * 32
@@ -117,7 +117,7 @@ class TestMempool:
 async def respond_transaction(
     node: FullNodeAPI,
     tx: full_node_protocol.RespondTransaction,
-    peer: ws.WSChiaConnection,
+    peer: ws.WSKiwiConnection,
     tx_bytes: bytes = b"",
     test: bool = False,
 ) -> Tuple[MempoolInclusionStatus, Optional[Err]]:

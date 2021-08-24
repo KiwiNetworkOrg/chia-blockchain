@@ -1,10 +1,10 @@
 from typing import Dict
 from unittest import TestCase
 
-from chia.types.blockchain_format.program import Program, SerializedProgram
-from chia.types.generator_types import GeneratorBlockCacheInterface
-from chia.full_node.generator import create_block_generator, create_generator_args
-from chia.util.ints import uint32
+from kiwi.types.blockchain_format.program import Program, SerializedProgram
+from kiwi.types.generator_types import GeneratorBlockCacheInterface
+from kiwi.full_node.generator import create_block_generator, create_generator_args
+from kiwi.util.ints import uint32
 
 gen0 = SerializedProgram.from_bytes(
     bytes.fromhex(

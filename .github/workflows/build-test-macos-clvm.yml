@@ -61,9 +61,9 @@ jobs:
     - name: Link home directory
       run: |
         cd $HOME
-        ln -s $GITHUB_WORKSPACE/.chia
-        echo "$HOME/.chia"
-        ls -al $HOME/.chia
+        ln -s $GITHUB_WORKSPACE/.kiwi
+        echo "$HOME/.kiwi"
+        ls -al $HOME/.kiwi
 
     - name: Run install script
       env:

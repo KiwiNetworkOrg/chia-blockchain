@@ -4,13 +4,13 @@ from typing import Optional
 
 import pytest
 
-from chia.consensus.block_record import BlockRecord
-from chia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from chia.full_node.full_node_api import FullNodeAPI
-from chia.protocols import full_node_protocol
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.peer_info import PeerInfo
-from chia.util.ints import uint16, uint32
+from kiwi.consensus.block_record import BlockRecord
+from kiwi.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from kiwi.full_node.full_node_api import FullNodeAPI
+from kiwi.protocols import full_node_protocol
+from kiwi.simulator.simulator_protocol import FarmNewBlockProtocol
+from kiwi.types.peer_info import PeerInfo
+from kiwi.util.ints import uint16, uint32
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 

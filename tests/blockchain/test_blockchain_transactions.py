@@ -4,14 +4,14 @@ import logging
 import pytest
 from clvm.casts import int_to_bytes
 
-from chia.consensus.blockchain import ReceiveBlockResult
-from chia.protocols import full_node_protocol
-from chia.types.announcement import Announcement
-from chia.types.condition_opcodes import ConditionOpcode
-from chia.types.condition_with_args import ConditionWithArgs
-from chia.types.spend_bundle import SpendBundle
-from chia.util.errors import ConsensusError, Err
-from chia.util.ints import uint64
+from kiwi.consensus.blockchain import ReceiveBlockResult
+from kiwi.protocols import full_node_protocol
+from kiwi.types.announcement import Announcement
+from kiwi.types.condition_opcodes import ConditionOpcode
+from kiwi.types.condition_with_args import ConditionWithArgs
+from kiwi.types.spend_bundle import SpendBundle
+from kiwi.util.errors import ConsensusError, Err
+from kiwi.util.ints import uint64
 from tests.wallet_tools import WalletTool
 from tests.core.full_node.test_full_node import connect_and_get_peer
 from tests.setup_nodes import bt, setup_two_nodes, test_constants
